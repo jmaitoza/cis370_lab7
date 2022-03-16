@@ -1,4 +1,6 @@
 Part 1.
 
-a.) They do have their own copies
-b.) There is a fixed order between sequential C1's and C2's.
+a.) They do have their own copies because when it creates a new process it copies the parent process variables into the child.
+
+b.) There is not a fixed order because whichever process finishes first is going to display first.
+    It is just a matter of which one executes before the other.

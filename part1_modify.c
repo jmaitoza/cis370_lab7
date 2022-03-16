@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
   int value;
   pid_t C1, C2;
   char outBuffer[128];
+  int waitRV, childstatus;
 
   // seed the random number with different values at different times
   srand((unsigned)time(&now));
@@ -27,6 +28,7 @@ int main(int argc, char *argv[]) {
   printf("%s", outBuffer);
 
   C1 = fork();
+  waitRV = wait(&childstatus); // wait for first child
   if (C1 < 0) {
     printf("Error: fork 1 failed\n");
     return -2;
@@ -49,7 +51,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (C2 == 0) {
-      sleep(7); // wait for child1 to finish before execution
+      // sleep(7); // wait for child1 to finish before execution
       for (index = 1; index <= COUNT; index++) {
         sprintf(outBuffer, "\tChild 2: my value is %d and my index is %d \r\n",
                 value, index);
