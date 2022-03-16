@@ -1,0 +1,4 @@
+Part 1.
+
+a.) They do have their own copies
+b.) There is a fixed order between sequential C1's and C2's.
